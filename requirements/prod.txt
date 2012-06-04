@@ -12,6 +12,7 @@ Markdown
 # Security
 bleach
 django-session-csrf
+grappelli
 #cef
 
 # Logging
