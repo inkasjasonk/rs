@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load googlecharts %}
+
+
+{% block content %}
+
+<div id="dash-container">
+    <div class="row-fluid">
+        {% if gsform %}
+        <div class="span12">
+            <h3 class="center">Average Price: Safes</h3><br />
+            {% include "base/gsform.html" %}
+
+            <div class="chart" id="g1"></div>
+        </div>
+
+        {% else %}
+        <div class="span12">
+            <h3 class="center">Average Price: Safe Components</h3><br />
+            {% include "base/gscform.html" %}        
+
+            <div class="chart" id="g2"></div>
+        </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="row-fluid">
+        <div class="span12">
+            <h3 class="center">Latest Profiles: Safes</h3><br />
+            <ol class="center">
+                {% for safe in latest_safes %}
+                <li>{{ safe.name }}</li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div><br />
+    <div class="row-fluid">
+        <div class="span12">
+            <h3 class="center">Latest Profiles: Safe Components</h3><br />
+            <ol class="center">
+                {% for safe in latest_comps %}
+                <li>{{ safe.name }}</li>
+                {% endfor %}
+            </ol>
+        </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% googlecharts %}
+    {# named data and options can be reused #}
+    {% data profiles "g1_data" %}
+        {% col "string" "Name" %}"{{ val }}"{% endcol %}
+        {% col "number" "Price" %}{{ val }}{% endcol %}
+    {% enddata %}
+    {# you can also use global javascript variables here, #}
+    {# and call functions #}
+    {% options "g1_options" %}
+        kind: "ColumnChart",
+        options: {
+            title: "Test",
+            width: 450,
+            height: 350,
+        }
+    {% endoptions %}
+    {# chart is assembled from container, data and options #}
+    {% graph "g1" "g1_data" "g1_options" %}
+
+
+    {# named data and options can be reused #}
+    {% data profiles "g2_data" %}
+        {% col "string" "Name" %}"{{ val }}"{% endcol %}
+        {% col "number" "Value" %}{{ val }}{% endcol %}
+    {% enddata %}
+    {# you can also use global javascript variables here, #}
+    {# and call functions #}
+    {% options "g2_options" %}
+        kind: "ColumnChart",
+        options: {
+            title: "Test",
+            width: 450,
+            height: 350
+        }
+    {% endoptions %}
+    {# chart is assembled from container, data and options #}
+    {% graph "g2" "g2_data" "g2_options" %}
+
+
+    {# named data and options can be reused #}
+    {% data profiles "g3_data" %}
+        {% col "string" "Name" %}"{{ val }}"{% endcol %}
+        {% col "number" "Value" %}{{ val }}{% endcol %}
+    {% enddata %}
+    {# you can also use global javascript variables here, #}
+    {# and call functions #}
+    {% options "g3_options" %}
+        kind: "ColumnChart",
+        options: {
+            title: "Test",
+            width: 450,
+            height: 350
+        }
+    {% endoptions %}
+    {# chart is assembled from container, data and options #}
+    {% graph "g3" "g3_data" "g3_options" %}
+{% endgooglecharts %}
+

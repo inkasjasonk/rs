@@ -1,0 +1,25 @@
+{% load base_tags %}
+
+
+<h2 id="dash-title">Safe Products Analysis</h2>
+<div id="nav-main">
+    <ul class="nav nav-pills">
+        <li class="{% active request "/" %}"><a href="/">Dashboard</a></li>
+        <li class="dropdown {% active request '/raw/' %}">
+        <a class="dropdown-toggle"
+        data-toggle="dropdown" 
+        href="#">
+        Raw Data
+        <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+        {% for model in model_list %}
+        {% with "/raw/"|add:model.class_name as url %}
+            <li class="{% active request url %}"><a href="{{ url }}">{{ model.meta.verbose_name_plural }}</a></li>
+        {% endwith %}
+        {% endfor %}
+        </ul>
+        </li>
+    </ul>
+</div>
+

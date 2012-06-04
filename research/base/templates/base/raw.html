@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div id="dash-container">
+
+    {% if not raw_data.0.get_fields %}
+
+    <h2 class="center">Sorry, there is no data here :(</h2>
+
+    {% else %}
+    <table id="raw" class="table table-tablesorter">
+    <thead>
+        <tr>
+        {% for name, value in raw_data.0.get_fields %}
+            {% if name != "id" %}
+                <th class="header">{{ name|upper }}</th>
+            {% endif %}
+        {% endfor %}
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for object in raw_data %}
+        <tr>
+            {% for name, value in object.get_fields %}
+                {% if name != "id" %}
+                    <td>
+                    {% if not value %} 
+                    {% else %}
+                    {{ value }}
+                    {% endif %}
+                    </td>
+                {% endif %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    {% endif %}
+
+    </div>
+
+{% endblock %}

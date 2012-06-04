@@ -1,0 +1,16 @@
+<form class="form-inline center" method="post" action="/graphsafes/">
+    {% csrf_token %}
+    {{ gsform.manufacturers }}
+    {{ gsform.stores }}
+    {{ gsform.categories }}
+    {{ gsform.volumes }}
+    {{ gsform.weights }}
+    {{ gsform.lock_ratings }}
+    {{ gsform.bolt_diameters }}
+    {{ gsform.door_thicknesses }}
+    <label>Safe Ratings</label>
+    {{ gsform.safe_ratings }}
+    <label>Features</label>
+    {{ gsform.features }}<br /><br />
+    <button type="submit" target="_self" class="btn btn-primary">Graph now</button>
+</form>

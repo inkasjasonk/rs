@@ -1,0 +1,28 @@
+/* =============================================================================
+   App specific CSS file.
+
+   This is usually where the site/app's CSS specific rules are setup. Note that you could
+   do exactly the same using less by adding a '@import "app.less";' at the end of
+   css/less/bootstrap.less file.
+
+   ========================================================================== */
+
+body {font-size: 12pt; color: #000000;}
+
+.login-form {margin: 80px auto; width: 300px; background-color: #2f2f2f; padding: 20px; border-radius: 10px;}
+.login-form label, .login-form h3 {color: #ffffff; margin-right: 10px;}
+
+#dash-title {text-align: center; background-color: #000000; color: #ffffff; padding: 4px 0px 4px 0px;}
+#nav-main {margin: 0px 0px 0px 30px; display: block;}
+
+table th:hover {cursor: pointer;}
+.table th {text-align: center;}
+.table td {text-align: center;}
+
+#dash-container {width: 100%;}
+.center {text-align: center;}
+.center-block {margin: 0 auto; display: block;}
+
+.chart iframe {margin: 0 auto; display: block;}
+
+

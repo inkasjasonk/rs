@@ -1,0 +1,7 @@
+<form class="form-inline center" method="post" action="/graphcomponent/">
+{% csrf_token %}
+    {{ gscform.manufacturers }}
+    {{ gscform.stores }}
+    {{ gscform.categories }}<br /><br />
+    <button type="submit" target="_self" class="btn btn-primary">Graph now</button>
+</form>
