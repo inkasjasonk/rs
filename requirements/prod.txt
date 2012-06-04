@@ -9,6 +9,7 @@ jingo
 jingo-minify
 Markdown
 django-grappelli
+django-google-charts
 
 # Security
 bleach
