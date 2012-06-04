@@ -9,6 +9,10 @@ jingo
 jingo-minify
 Markdown
 django-grappelli
+
+# Googlecharts
+django-qsstats-magic
+python-dateutil
 django-google-charts
 
 # Security
