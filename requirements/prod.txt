@@ -8,11 +8,11 @@ Django>=1.4
 jingo
 jingo-minify
 Markdown
+django-grappelli
 
 # Security
 bleach
 django-session-csrf
-grappelli
 #cef
 
 # Logging
